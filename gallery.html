@@ -74,7 +74,16 @@
         </div>
     </main>
 
+    <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
     <script>
+        lightbox.option({
+            'albumLabel': 'Image %1 of %2',
+            'fadeDuration': 200,
+            'imageFadeDuration': 200,
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+
         const gallery = document.getElementById('gallery');
         const tagFilter = document.getElementById('tag-filter');
         const dateSort = document.getElementById('date-sort');
@@ -102,6 +111,5 @@
         dateSort.addEventListener('change', update);
         update();
     </script>
-    <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
 </body>
 </html>
