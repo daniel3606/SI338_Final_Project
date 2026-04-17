@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Daniel Lim's Gallery</a>
+        <nav>
+            <ul class="header_actions">
+                <li class="nav-link"><a href="#">Home</a></li>
+                <li class="nav-link"><a href="./gallery.html">Gallary</a></li>
+                <li class="nav-link"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="intro-container">
+            <div class="intro-ring">
+                <img class="intro-img" src="https://us.ricoh-imaging.com/wp-content/uploads/2020/06/se_03_no-background.png" alt="Camera Image">
+                <svg class="intro-ring-text" viewBox="0 0 400 400" aria-hidden="true">
+                    <defs>
+                        <path id="camera-circle" d="M 200 200 m -170 0 a 170 170 0 1 1 340 0 a 170 170 0 1 1 -340 0"></path>
+                    </defs>
+                    <text class="text">
+                        <textPath href="#camera-circle" startOffset="0%">
+                            DANIEL'S GALLERY • DANIEL'S GALLERY • DANIEL'S GALLERY • DANIEL'S GALLERY • DANIEL'S GALLERY • DANIEL'S GALLERY •
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+            <p style="color: #999;">taken with Ricoh GR III</p>
+
+        </div>
+        <div class="about-container">
+            <h2>About</h2>
+            <div class="about-content">
+                <img class="about-img" src="./assets/icons/me.jpeg" alt="Me">
+                <p class="about-text">I bought my camera in 2024 to leave memories of my travels and experiences.
+                     I use Ricoh GR III (which was really expensive) to capture the landscapes and people.
+                     I currently visted Florida, New York after buying the camera, and there are also pictures from Michigan as well.
+                     Ricoh GR III captures great aesthetic moments, with great color & quality for it's size.
+                </p>
+            </div>
+        </div>
+        <div class="preview-container">
+            <h2>Preview</h2>
+                <div class="block">
+                    <div class="animation">
+                    <div class="first">
+                        <img src="./assets/img/p_banana.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_building.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_building_2.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_drawing.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_street_2.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_people.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_restaurant.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_shop_2.JPG">
+                    </div>
+                    <div>
+                        <img src="./assets/img/p_shop.JPG">
+                    </div>
+                    <!-- cut -->
+                    </div>
+                <button class="view-more-button">View More</button>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

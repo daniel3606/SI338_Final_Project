@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./node_modules/lightbox2/dist/css/lightbox.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Daniel Lim's Gallery</a>
+        <nav>
+            <ul class="header_actions">
+                <li class="nav-link"><a href="./index.html">Home</a></li>
+                <li class="nav-link"><a href="./gallery.html">Gallery</a></li>
+                <li class="nav-link"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 1rem;">
+        <!-- Controls -->
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
+            <div>
+                <label for="tag-filter" style="margin-right: 0.25rem;">Tag:</label>
+                <select id="tag-filter" style="padding: 0.4rem; border-radius: 4px;">
+                    <option value="all">All</option>
+                    <option value="street">Street</option>
+                    <option value="nature">Nature</option>
+                    <option value="portrait">Portrait</option>
+                    <option value="architecture">Architecture</option>
+                </select>
+            </div>
+            <div>
+                <label for="date-sort" style="margin-right: 0.25rem;">Sort by date:</label>
+                <select id="date-sort" style="padding: 0.4rem; border-radius: 4px;">
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Gallery grid -->
+        <div id="gallery" class="gallery-masonry">
+            <a class="gallery-item" href="./assets/img/_R000746.JPG" data-lightbox="gallery" data-tags="street" data-date="2024-01-01" data-title="Street photo"><img class="gallery-card" src="./assets/img/_R000746.JPG" alt="Street photo"></a>
+            <a class="gallery-item" href="./assets/img/R0000975.JPG" data-lightbox="gallery" data-tags="nature" data-date="2024-01-15" data-title="Nature photo"><img class="gallery-card" src="./assets/img/R0000975.JPG" alt="Nature photo"></a>
+            <a class="gallery-item" href="./assets/img/R0000979.JPG" data-lightbox="gallery" data-tags="portrait" data-date="2024-03-01" data-title="Portrait photo"><img class="gallery-card" src="./assets/img/R0000979.JPG" alt="Portrait photo"></a>
+            <a class="gallery-item" href="./assets/img/R0000976.JPG" data-lightbox="gallery" data-tags="nature" data-date="2024-02-01" data-title="Nature photo"><img class="gallery-card" src="./assets/img/R0000976.JPG" alt="Nature photo"></a>
+            <a class="gallery-item" href="./assets/img/R0000977.JPG" data-lightbox="gallery" data-tags="street" data-date="2024-02-10" data-title="Street photo"><img class="gallery-card" src="./assets/img/R0000977.JPG" alt="Street photo"></a>
+            <a class="gallery-item" href="./assets/img/R0000987.JPG" data-lightbox="gallery" data-tags="architecture" data-date="2024-03-15" data-title="Architecture photo"><img class="gallery-card" src="./assets/img/R0000987.JPG" alt="Architecture photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001031.JPG" data-lightbox="gallery" data-tags="street" data-date="2024-04-01" data-title="Street photo"><img class="gallery-card" src="./assets/img/R0001031.JPG" alt="Street photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001034.JPG" data-lightbox="gallery" data-tags="nature" data-date="2024-04-10" data-title="Nature photo"><img class="gallery-card" src="./assets/img/R0001034.JPG" alt="Nature photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001148.JPG" data-lightbox="gallery" data-tags="portrait" data-date="2024-05-01" data-title="Portrait photo"><img class="gallery-card" src="./assets/img/R0001148.JPG" alt="Portrait photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001149.JPG" data-lightbox="gallery" data-tags="architecture" data-date="2024-05-15" data-title="Architecture photo"><img class="gallery-card" src="./assets/img/R0001149.JPG" alt="Architecture photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001677.JPG" data-lightbox="gallery" data-tags="street" data-date="2024-06-01" data-title="Street photo"><img class="gallery-card" src="./assets/img/R0001677.JPG" alt="Street photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001678.JPG" data-lightbox="gallery" data-tags="nature" data-date="2024-06-10" data-title="Nature photo"><img class="gallery-card" src="./assets/img/R0001678.JPG" alt="Nature photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001679.JPG" data-lightbox="gallery" data-tags="portrait" data-date="2024-07-01" data-title="Portrait photo"><img class="gallery-card" src="./assets/img/R0001679.JPG" alt="Portrait photo"></a>
+            <a class="gallery-item" href="./assets/img/R0001680.JPG" data-lightbox="gallery" data-tags="architecture" data-date="2024-07-15" data-title="Architecture photo"><img class="gallery-card" src="./assets/img/R0001680.JPG" alt="Architecture photo"></a>
+        </div>
+    </main>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const tagFilter = document.getElementById('tag-filter');
+        const dateSort = document.getElementById('date-sort');
+
+        function update() {
+            const tag = tagFilter.value;
+            const order = dateSort.value;
+            const images = [...gallery.querySelectorAll('.gallery-item')];
+
+            // Sort
+            images.sort((a, b) => {
+                const da = new Date(a.dataset.date);
+                const db = new Date(b.dataset.date);
+                return order === 'newest' ? db - da : da - db;
+            });
+
+            // Re-append in sorted order & filter
+            images.forEach(img => {
+                gallery.appendChild(img);
+                img.style.display = (tag === 'all' || img.dataset.tags === tag) ? '' : 'none';
+            });
+        }
+
+        tagFilter.addEventListener('change', update);
+        dateSort.addEventListener('change', update);
+        update();
+    </script>
+    <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
+</body>
+</html>
