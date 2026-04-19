@@ -327,3 +327,36 @@ body { background-color: #000; }
     margin: 2rem;
     line-height: 2;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .slider .slide-track {
+        animation: none;
+    }
+
+    .block > div {
+        animation: none !important;
+        margin-left: 0 !important;
+    }
+
+    .preview-container .block {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .preview-container .animation {
+        display: flex;
+        flex-wrap: nowrap;
+        width: max-content;
+        height: auto;
+        min-height: 100px;
+    }
+
+    .preview-container .animation > div {
+        flex: 0 0 auto;
+    }
+}

@@ -1,5 +1,12 @@
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 $(window).on('load', function(){
     // Please run it with window.onload, not with document.ready
+    if (prefersReducedMotion()) {
+      return;
+    }
     initSmoothScrolling('.block','smoothscroll');
   });
   
