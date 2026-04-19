@@ -21,23 +21,26 @@
 
     <main style="padding: 1rem;">
         <!-- Controls -->
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
-            <div>
-                <label for="tag-filter" style="margin-right: 0.25rem;">Tag:</label>
-                <select id="tag-filter" style="padding: 0.4rem; border-radius: 4px;">
-                    <option value="all">All</option>
-                    <option value="street">Street</option>
-                    <option value="nature">Nature</option>
-                    <option value="portrait">Portrait</option>
-                    <option value="architecture">Architecture</option>
-                </select>
-            </div>
-            <div>
-                <label for="date-sort" style="margin-right: 0.25rem;">Sort by date:</label>
-                <select id="date-sort" style="padding: 0.4rem; border-radius: 4px;">
-                    <option value="newest">Newest first</option>
-                    <option value="oldest">Oldest first</option>
-                </select>
+         <div class="gallery-nav">
+            <h1 class="gallery-title">Gallery</h1>
+            <div class="filter-container" style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
+                <div>
+                    <label for="tag-filter" style="margin-right: 0.25rem;">Tag:</label>
+                    <select id="tag-filter" class="select-box">
+                        <option value="all">All</option>
+                        <option value="street">Street</option>
+                        <option value="nature">Nature</option>
+                        <option value="portrait">Portrait</option>
+                        <option value="architecture">Architecture</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date-sort" style="margin-right: 0.25rem;">Sort by date:</label>
+                    <select id="date-sort" class="select-box">
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -73,6 +76,14 @@
             <a class="gallery-item" href="./assets/img/p_zoo_2.JPG" data-lightbox="gallery" data-tags="nature" data-date="2024-01-28" data-title="Zoo 2"><img class="gallery-card" src="./assets/img/p_zoo_2.JPG" alt="Zoo 2"></a>
         </div>
     </main>
+    <footer class="footer-container">
+        <p>&copy; 2026 Daniel Lim. All rights reserved.</p>
+        <ul class="footer-actions">
+            <li class="footer-action"><a href="#">Privacy Policy</a></li>
+            <li class="footer-action"><a href="#">Terms of Service</a></li>
+            <li class="footer-action"><a href="./contact.html">Contact</a></li>
+        </ul>
+    </footer>
 
     <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
     <script>
