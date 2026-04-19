@@ -93,6 +93,11 @@ header{
     border-radius: 16px;
 }
 
+.about-container:focus-visible {
+    outline: 2px solid #9ca3af;
+    outline-offset: 4px;
+}
+
 .about-content{
     text-align: left;
     text-justify: center;
